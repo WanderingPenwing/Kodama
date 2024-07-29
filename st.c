@@ -225,8 +225,6 @@ static char base64dec_getc(const char **);
 
 static ssize_t xwrite(int, const char *, size_t);
 
-void clearhistory(const Arg *arg);
-
 /* Globals */
 static Term term;
 static Selection sel;
@@ -240,23 +238,6 @@ static const uchar utfbyte[UTF_SIZ + 1] = {0x80,	0, 0xC0, 0xE0, 0xF0};
 static const uchar utfmask[UTF_SIZ + 1] = {0xC0, 0x80, 0xE0, 0xF0, 0xF8};
 static const Rune utfmin[UTF_SIZ + 1] = {	   0,	0,  0x80,  0x800,  0x10000};
 static const Rune utfmax[UTF_SIZ + 1] = {0x10FFFF, 0x7F, 0x7FF, 0xFFFF, 0x10FFFF};
-
-void
-clearhistory(const Arg *arg) {
-    // Clear the visible screen
-    tclearregion(0, 0, term.col-1, term.row-1);
-    tsetdirt(0, term.row);
-    
-    // Clear the scrollback buffer
-    term.scr = 0;
-    term.histi = 0;
-    for (int i = 0; i < HISTSIZE; i++) {
-        memset(term.hist[i], 0, term.col * sizeof(Line));
-    }
-    
-    // Redraw to apply changes
-    tfulldirt();
-}
 
 ssize_t
 xwrite(int fd, const char *s, size_t len)

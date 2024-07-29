@@ -1,14 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
-void clearhistory(const Arg *arg);
-
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "DejaVu Sans Mono:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "Mononoki Nerd Font:pixelsize=20:antialias=true:autohint=true";
+static int borderpx = 16;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -100,30 +98,30 @@ static const int alpha = 0xff;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#3B4252", /* nord1 */
-	"#BF616A", /* nord11 */
-	"#A3BE8C", /* nord14 */
-	"#EBCB8B", /* nord13 */
-	"#81A1C1", /* nord9 */
-	"#B48EAD", /* nord15 */
-	"#88C0D0", /* nord8 */
-	"#E5E9F0", /* nord5 */
+	"#222222",
+	"#FF5555",
+	"#5FD38D",
+	"#FF9955",
+	"#3771C8",
+	"#BC5FD3",
+	"#5FD3BC",
+	"#999999",
 
 	/* 8 bright colors */
-	"#4C566A", /* nord3 */
-	"#D08770", /* nord12 */
-	"#8FBCBB", /* nord7 */
-	"#EBCB8B", /* nord13 */
-	"#5E81AC", /* nord10 */
-	"#B48EAD", /* nord15 (same as normal magenta) */
-	"#88C0D0", /* nord8 (same as normal cyan) */
-	"#ECEFF4", /* nord6 */
+	"#666666",
+	"#FF8080",
+	"#87DEAA",
+	"#FFB380",
+	"#5F8DD3",
+	"#CD87DE",
+	"#87DECD",
+	"#CCCCCC",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#D8DEE9", /* nord4 (default foreground colour) */
-	"#2E3440", /* nord0 (default background colour) */
+	"#CCCCCC", /* nord4 (default foreground colour) */
+	"#222222", /* nord0 (default background colour) */
 };
 
 
@@ -201,9 +199,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,			XK_C,		   clipcopy,	   {.i =  0} },
 	{ TERMMOD,			XK_V,		   clippaste,	  {.i =  0} },
 	{ TERMMOD,			XK_Y,		   selpaste,	   {.i =  0} },
-	{ ShiftMask,		  XK_Insert,	  selpaste,	   {.i =  0} },
 	{ TERMMOD,			XK_Num_Lock,	numlock,		{.i =  0} },
-	{ ControlMask,		XK_L,		   clearhistory,   {.i =  0} },
 };
 
 /*
