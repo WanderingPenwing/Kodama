@@ -200,6 +200,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,			XK_V,		   clippaste,	  {.i =  0} },
 	{ TERMMOD,			XK_Y,		   selpaste,	   {.i =  0} },
 	{ TERMMOD,			XK_Num_Lock,	numlock,		{.i =  0} },
+	{ TERMMOD,			XK_Escape,      keyboard_select,{ 0 } },
+	
 };
 
 /*
