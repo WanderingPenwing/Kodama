@@ -2934,10 +2934,6 @@ int trt_kbdselect(KeySym ksym, char *buf, int len) {
         term.c.y = cu.y >> 1;
         select_or_drawcursor(selectsearch_mode, type);
         break;
-    case XK_C :
-       	Arg *dummy_arg = {.i =  0};
-       	clipcopy(dummy_arg);
-       	break;
     default :
         if ( ksym >= XK_0 && ksym <= XK_9 ) {               /* 0-9 keyboard */
             quant = (quant * 10) + (ksym ^ XK_0);
